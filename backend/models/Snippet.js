@@ -8,10 +8,7 @@ const snippetSchema = mongoose.Schema({
     type:String,
     description:String,
     code: String,
-    tags:{default:Array}
-
-
-    
+    tags:Array
 })
 
 module.exports = mongoose.model('Snippet', snippetSchema)

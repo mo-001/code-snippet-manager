@@ -1,12 +1,11 @@
 /**
  * Mongoose testing via Models
  */
-const mongoose = require('mongoose')
+const mockingoose=  require('mockingoose')
 const Snippet = require('../models/Snippet')
 
 
 let test_data = {
-    _id:"test_data",
     title:"Centerin a div",
     description:"In HTML - this will allow centering of a div.",
     tags:["html", "css", "js"],
@@ -20,8 +19,12 @@ let test_data = {
  * @expected - 
  */
 test('saves a new snippet to the db',()=>{
-    expect(new Snippet(test_data).save())
-    .toBe()
+    new Snippet(test_data).save()
+    .then(results=>{
+        expect("beepboop")
+        .toBe()
+    });
+    
 })
 
 /**
@@ -30,8 +33,12 @@ test('saves a new snippet to the db',()=>{
  * @expected - 
  */
  test('deletes the test from the db',()=>{
-    expect(Snippet.findOneAndDelete(test_data._id))
-    .toBe()
+    Snippet.findOneAndDelete(test_data)
+    .then(results=>{
+        expect(results)
+        .toBeDefined()
+    })
+    
 })
 
 /**
@@ -40,12 +47,14 @@ test('saves a new snippet to the db',()=>{
  * @expected
 */
 test('updates the test name of test_data from the db',()=>{
-    expect(
-        Snippet.findOneAndUpdate(test_data._id,{
-            name:"Creating a div"
-        })
-    )
-    .toBe()
+    Snippet.findOneAndUpdate(test_data._id,{
+        name:"Creating a div"
+    })
+    .then(results=>{
+        expect(results)
+        .toBe()
+    })
+    
 })
 
 
@@ -55,8 +64,11 @@ test('updates the test name of test_data from the db',()=>{
  * @expected -
  */
 test('finds all data and returns test_data from the db',()=>{
-    expect(Snippet.find(test_data))
-    .toBe()
+    Snippet.find(test_data)
+    .then(results=>{
+        expect(results)
+        .toBe()
+    })
 })
 
 
@@ -67,8 +79,11 @@ test('finds all data and returns test_data from the db',()=>{
  * @expected - 
  */
 test('finds the test_data from the db and returns',()=>{
-    expect(Snippet.findOne(test_data._id))
-    .toBe()
+    Snippet.findOne(test_data._id)
+    .then(results=>{
+        expect(results)
+        .toBe()
+    })
 })
 
 
