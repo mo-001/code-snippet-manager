@@ -5,6 +5,7 @@ const mongoose = require('mongoose')
  */
 const snippetSchema = mongoose.Schema({
     title: String,
+    type:String,
     description:String,
     code: String,
     tags:{default:Array}
