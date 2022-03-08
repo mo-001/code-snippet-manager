@@ -6,12 +6,13 @@ import { Router, Switch } from 'react-router-dom';
 import Header from './components/header';
 import Footer from './components/footer';
 import MainPage from './pages/MainPage';
+import Modal from './components/modal';
 function App(){
   return(
     <div class="App">
-    <Header/>
-    <MainPage/>
-    <Footer/>  
+          <Header/>
+          <MainPage/>
+          <Footer/>
     </div>
   )
 }

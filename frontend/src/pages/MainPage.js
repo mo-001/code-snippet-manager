@@ -19,7 +19,6 @@ export default class MainPage extends React.Component{
             snippets = this.state.snippets.map(snippet=>{
                 return <SnippetCard data={snippet}/>
             })
-            console.log(snippets)
         }
         else{
             snippets = <p>No results found</p>             

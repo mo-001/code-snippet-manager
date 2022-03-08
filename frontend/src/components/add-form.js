@@ -1,16 +1,10 @@
-class AddForm extends React.Component{
+import React from 'react'
 
-    constructor(){
-        this.state={
-
-        }
+export default class AddForm extends React.Component{
+    constructor(props){
+        super(props)
     }
-
     render=()=>{
-        
-
+        return(<></>)
     }
-
-
-
 }
