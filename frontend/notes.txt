@@ -1,0 +1,11 @@
+//TODO
+- fix delete not working
+- fix two modals popping up
+- fix auto/height problems (footer and modal)
+- add fontawesome and shift close to the right
+
+- highlight via highlight js
+- search
+- search via tags?
+- update
+- have a title screen or something as a landing thing?
