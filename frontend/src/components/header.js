@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from "react-router-dom"
-
+import Modal from './modal'
 export default class Header extends React.Component{
 
     constructor(props){
@@ -15,10 +15,9 @@ export default class Header extends React.Component{
                 <div class="wrapper">
                     <div class="logo">
                     </div>
-                    
+
                     <div class="links">
-                        <text onClick={(e)=>{this.props.loadModal('add')}}>Add</text>
-                        <text onClick={(e)=>{this.props.loadModal('settings')}}>Settings</text>
+                        <Modal form={"addForm"} name={"Add"} data={null}/>
                     </div>
                 </div>
             </div>

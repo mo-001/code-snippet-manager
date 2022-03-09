@@ -1,9 +1,12 @@
 import React from 'react'
 import { isCompositeComponent } from 'react-dom/test-utils'
+import AddForm from './add-form'
+import DeleteForm from './delete-form'
 import DetailsForm from './details-form'
 const forms = {
     detailsForm:DetailsForm,
-
+    addForm:AddForm,
+    deleteForm:DeleteForm
 }
 
 function DynamicForm(props){
@@ -35,7 +38,7 @@ export default class Modal extends React.Component{
             modal =  <div className="outer-modal">
                         <div className="inner-modal">
                             <button onClick={(e)=>{this.closeModal()}}>close</button>
-                            <DynamicForm form={this.state.form} data={this.state.data}/>
+                            <DynamicForm form={this.props.form} data={this.props.data}/>
                         </div>
                     </div>
         }
@@ -44,12 +47,9 @@ export default class Modal extends React.Component{
         }
             return(
                 <>
-                <button onClick={(e)=>{this.openModal()}}>View</button>
+                <text onClick={(e)=>{this.openModal()}}>{this.props.name}</text>
                 {modal}
                 </>
             )
     }
-
-
-
 }

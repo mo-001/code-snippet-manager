@@ -28,7 +28,7 @@ export default class SnippetCard extends React.Component{
                     {tags}
                     <p>{this.props.data.description}</p>
                 </div>
-                <Modal form={"detailsForm"} data={this.props.data}/>
+                <Modal form={"detailsForm"} name={"View"} data={this.props.data}/>
             </div>
         )
     }
