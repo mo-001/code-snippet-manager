@@ -7,13 +7,20 @@ import Header from './components/header';
 import Footer from './components/footer';
 import MainPage from './pages/MainPage';
 import Modal from './components/modal';
-function App(){
-  return(
-    <div class="App">
-          <Header/>
-          <MainPage/>
-          <Footer/>
-    </div>
-  )
+export default class App extends React.Component{
+  constructor(props){
+    super(props)
+    this.state={
+
+    }
+  }
+  render=()=>{
+    return(
+      <div class="App">
+            <Header/>
+            <MainPage/>
+            <Footer/>
+      </div>
+    )
+  }
 }
-export default App;

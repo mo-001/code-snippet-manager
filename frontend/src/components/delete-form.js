@@ -12,7 +12,9 @@ export default class DeleteForm extends React.Component{
     }
     deleteSnippet=()=>{
         Axios.delete('http://localhost:9000' +'/api/snippets/remove',{
-            _id:this.props.data._id
+            data:{
+                _id:this.props.data._id
+            }
         })
         .then(response=>{
             if(response.data.success){
@@ -28,8 +30,9 @@ export default class DeleteForm extends React.Component{
 
     }
     render=()=>{
-        if(this.delete_confirmed){
-            return(<Navigate to="/"/>)
+        console.log(this.state.delete_confirmed)
+        if(this.state.delete_confirmed){
+            window.location.reload(false)
         }
         return(
         <div class="form dynamic-form">

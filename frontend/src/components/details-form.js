@@ -44,6 +44,7 @@ function DetailsForm(props){
                     </label>
                 </div>
                 <Modal form={"deleteForm"} name={"Delete"} data={props.data}/>
+                <Modal form={"updateForm"} name={"Edit"} data={props.data}/>
             </div>
         </div>
     </div>

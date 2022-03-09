@@ -36,23 +36,29 @@ router.get('/snippets', (req,res)=>{
 
 
 /**
- * @route - /snippets/:id
- * @description - get a single snippet
+ * @route - /snippets/:title
+ * @description - search for snippets
  */
-router.get('/snippets/snippet/:id', (req,res)=>{
-    Snippet.findOne({_id:req.body.id})
-    .then(snippet=>{
+router.get('/snippets/:title', (req,res)=>{
+    Snippet.find({})
+    .then(snippets=>{
         //on success
-        if(snippet != null){
+        if(snippets){
+            let snippets_array = snippets.filter(snippet=>{
+                let query = snippet.title
+                if(query.toString().includes(req.params.title)){
+                    return snippet
+                }
+            })
             return res.json({
-                snippet:snippet,
+                snippets:snippets_array,
                 success:true
             })
         }
         //on failure
         else{
             return res.json({
-                message:"Unable to retrieve snippet",
+                message:"Unable to retrieve snippets",
                 error:true
             })
         }
@@ -65,12 +71,30 @@ router.get('/snippets/snippet/:id', (req,res)=>{
  * @description - updates a snippet based on id
  */
 router.put('/snippets/update', (req,res)=>{
-    Snippet.findOneAndUpdate({_id:req.body.id},{
+    Snippet.findOneAndUpdate({_id:req.body._id},{
         title:req.body.title,
         description:req.body.description,
         type:req.body.type,
         code:req.body.code,
         tags:req.body.tags
+    })
+    .then(snippet=>{
+        //on sucess
+        if(snippet){
+            return res.json({
+                success:true,
+                message:"Snippet sucessfully updated"
+
+            })
+        }
+        //on failure
+        else{
+            return res.json({
+                error:true,
+                message:"Snippet failed to update"
+            })
+
+        }
     })
 
 })
@@ -129,7 +153,7 @@ router.post('/snippets/add', (req,res)=>{
  * @description - removes a snippet based on id
  */
 router.delete('/snippets/remove', (req,res)=>{
-    Snippet.findOneAndDelete({_id:req.body.id})
+    Snippet.findOneAndDelete({_id:req.body._id})
     .then(snippet=>{
         //on success
         if(snippet){

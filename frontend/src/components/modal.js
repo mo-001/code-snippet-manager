@@ -3,10 +3,12 @@ import { isCompositeComponent } from 'react-dom/test-utils'
 import AddForm from './add-form'
 import DeleteForm from './delete-form'
 import DetailsForm from './details-form'
+import UpdateForm from './update-form'
 const forms = {
     detailsForm:DetailsForm,
     addForm:AddForm,
-    deleteForm:DeleteForm
+    deleteForm:DeleteForm,
+    updateForm:UpdateForm
 }
 
 function DynamicForm(props){
